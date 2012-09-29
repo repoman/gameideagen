@@ -12,7 +12,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-from data_model import #attribute, attribute_category
+#from data_model import attribute, attribute_category
 
 # attribute_query = attribute.all()
 # attribute_category_query = attribute_query.attribute_category.title
