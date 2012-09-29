@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<script>
+
+		// keyword: RESTRICTIONS
+
+		// protagonist, what kind, if any
+		// storytelling technique
+		// unfolding of story
+		// recurrent theme
+
+		var dimensions = [
+			'2D',
+			'3D'
+		];
+		var atmospheres = [
+			'a carefree',
+			'a psychedelic',
+			'a classic romantic',
+			'a stoner-esque',
+			'a creepy',
+			'a hilarious',
+			'a post apocalyptic',
+			'an empty'
+		];
+		var genres = [
+			'sandbox game',
+			'text adventure',
+			'space blaster',
+			'platformer',
+			'driving simulator',
+			'maze game',
+			'action-adventure',
+			'stealth game',
+			'life simulation',
+			'turn-based strategy',
+			'real time strategy',
+			'puzzle game',
+			'card game',
+			'web shopping simulator'
+		];
+		var players = [
+			'single player',
+			'local multiplayer',
+			'online multiplayer'
+		];
+		var platforms = [
+			'mobile',
+			'desktop',
+			'Raspberry Pi',
+			'browser'
+		];
+		var places = [
+			'in space',
+			'in Rio de Janeiro',
+			'at the music festival Roskilde in Denmark',
+			'on the moon',
+			'at an agents secret hideout',
+			'at a space station',
+			'in Oslo (Norway)',
+			'in hell',
+			'in purgatory',
+			'at a café',
+			'in a village',
+			'in New York',
+			'in São Paulo',
+			'in Berlin',
+			'inside a robot'
+		];
+		var time = [
+			'the 70s',
+			'the 80s',
+			'the 90s',
+			'the birth of the musical genre dub',
+			'the 60s',
+			'the year 2100',
+			'the year 800',
+			'the year 10000',
+			'the birth of synthesizers',
+			'the birth of jazz',
+			'the stone age',
+			'world war two',
+			'today',
+			'the weekend',
+			'one hour',
+			'one nanosecond'
+		];
+		var portrayals = [
+			'a struggling fashion model',
+			'a revolution of its kind',
+			'a kid trying to make it in the rap game',
+			'a depressed toy factory worker',
+			'the joy felt by an entire nation'
+		];
+		var protagonists = [
+			'no protagonist',
+			'a cute turtle'
+		];
+		var bonus_restrictions = [
+			'you can’t use the color white',
+			'your game cannot contain text visible to the player',
+			'you cannot implement saving functionality',
+			'it’s pixel art',
+			'it must be black and white',
+			'it must contain a bug that sends you, the creator, an email each time someone quits the game after playing less than five minutes'
+		];
+
+		function get_random_word(word_list){
+			var choice = (Math.random() * (word_list.length - 1)).toFixed();
+			return word_list[choice];
+		};
+
+		function generate_idea(id) {
+			if (document.getElementById(id)){
+				document.getElementById(id).innerHTML = ('A ' + get_random_word(dimensions) + ' ' + get_random_word(players) + ' ' + get_random_word(genres) + ' with ' + get_random_word(atmospheres) + ' atmosphere, set ' + get_random_word(places) + ' during ' + get_random_word(time) + '.<br><br>' + 'The game portrays ' + get_random_word(portrayals) + '.<br><br>Bonus restriction: ' + get_random_word(bonus_restrictions) + '.');
+			} else {
+				console.log('document.getElementById(' + id + ') is not found');
+			};
+		};
+	</script>
+	
+	<input type='submit' value='Generate video game idea' onclick='generate_idea("idea");'>
+	<br>
+	<br>
+	<div id='idea'></div>
+{% endblock %}
